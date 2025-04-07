@@ -1,0 +1,46 @@
+{
+  "name": "simple-calculator-electron",
+  "version": "1.0.0",
+  "description": "A simple calculator built with Electron",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.calculator.electron",
+    "productName": "Simple Calculator",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/calculator-icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/calculator-icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/calculator-icon.png"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aujiz11/simple-calculator-electron.git"
+  },
+  "author": {
+    "name": "aujiz11",
+    "email": "letuank2018@gmail.com",
+    "url": "https://github.com/aujiz11"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  }
+}
