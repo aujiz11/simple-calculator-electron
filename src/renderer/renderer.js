@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Skip if there's no operation or we're waiting for a second number
     if (operation === null || shouldResetScreen) return;
     
-    let result;
     // Convert string inputs to numbers
     const prev = parseFloat(previousInput);
     const current = parseFloat(currentInput);
@@ -130,25 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
       '%': (a, b) => a % b
     };
     
-    switch (operation) {
-      case '+':
-        result = operators['+'](prev, current);
-        break;
-      case '-':
-        result = operators['-'](prev, current);
-        break;
-      case '*':
-        result = operators['*'](prev, current);
-        break;
-      case '/':
-        result = operators['/'](prev, current);
-        break;
-      case '%':
-        result = operators['%'](prev, current);
-        break;
-      default:
-        return;
-    }
+    // This way of assigning values ​​is better than my original switch-case
+    const result = operators[operation] ? operators[operation](prev, current) : null;
+    if (result === null || result === undefined) return;
 
     historyElement.textContent = `${previousInput} ${getOperatorSymbol(operation)} ${currentInput} =`;
     currentInput = formatResult(result);
