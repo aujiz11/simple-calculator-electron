@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    currentInput = formatResult(result);
     historyElement.textContent = `${previousInput} ${getOperatorSymbol(operation)} ${currentInput} =`;
+    currentInput = formatResult(result);
     operation = null;
   }
 
