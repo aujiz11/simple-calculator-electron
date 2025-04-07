@@ -5,29 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder",
-    "build:win": "electron-builder --win",
-    "build:mac": "electron-builder --mac",
-    "build:linux": "electron-builder --linux"
-  },
-  "build": {
-    "appId": "com.calculator.electron",
-    "productName": "Simple Calculator",
-    "directories": {
-      "output": "dist"
-    },
-    "win": {
-      "target": "nsis",
-      "icon": "assets/calculator-icon.ico"
-    },
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/calculator-icon.icns"
-    },
-    "linux": {
-      "target": "AppImage",
-      "icon": "assets/calculator-icon.png"
-    }
+    "build": "electron-builder --config electron-builder.json"
   },
   "repository": {
     "type": "git",
