@@ -9,7 +9,6 @@ A beautiful, minimalist calculator desktop application built with Electron and J
 - Custom transparent UI with minimal design
 - Custom window controls (macOS-inspired)
 - Keyboard support for quick calculations
-- Cross-platform compatibility (Windows, macOS, Linux)
 
 ## Disclaimer
 
@@ -51,18 +50,6 @@ This project was created for educational purposes only:
 Build for your current platform:
 ```bash
 npm run build
-```
-
-Build for specific platforms:
-```bash
-# Windows
-npm run build:win
-
-# macOS
-npm run build:mac
-
-# Linux
-npm run build:linux
 ```
 
 ## Yech Stack
