@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Build Electron App
 
 on:
@@ -32,17 +29,28 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
+      # Zip the portable version (win-unpacked folder)
+      - name: Create ZIP archive of portable version
+        run: |
+          Compress-Archive -Path dist/win-unpacked/* -DestinationPath dist/SimpleCalculator-portable.zip
+        shell: powershell
+      
+      # Upload both installer and portable versions as artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: windows-app
-          path: dist/*.exe
+          name: windows-app-artifacts
+          path: |
+            dist/*.exe
+            dist/SimpleCalculator-portable.zip
 
+      # Upload to release if this was triggered by a release event
       - name: Upload to release
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v1
         with:
           files: |
             dist/*.exe
+            dist/SimpleCalculator-portable.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
