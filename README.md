@@ -65,12 +65,14 @@ npm run build
 simple-calculator-electron/
 ├── src/
 │   ├── main.js            # Main process (Electron app entry point)
+│   ├── preload.js         # Preload script
 │   ├── renderer/
 │   │   ├── index.html     # Main UI structure
 │   │   ├── styles.css     # UI styling
 │   │   └── renderer.js    # Calculator logic
 ├── assets/
 │   └── calculator-icon.png # App icon
+├── electron-builder.json # Build configuration
 ├── package.json          # Project config and dependencies
 └── README.md             # Project documentation
 ```
