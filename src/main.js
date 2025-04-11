@@ -10,8 +10,9 @@ function createWindow() {
     transparent: true,
     backgroundColor: '#00000000',
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     },
     icon: path.join(__dirname, '../assets/calculator-icon.png')
   });

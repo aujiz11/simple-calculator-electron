@@ -1,5 +1,3 @@
-const { ipcRenderer } = require('electron');
-
 document.addEventListener('DOMContentLoaded', () => {
   const resultElement = document.getElementById('result');
   const historyElement = document.getElementById('history');
@@ -14,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastOperation = null;
 
   document.getElementById('minimize-btn').addEventListener('click', () => {
-    ipcRenderer.send('minimize-window');
+    window.electronAPI.window.minimize();
   });
 
   document.getElementById('close-btn').addEventListener('click', () => {
-    ipcRenderer.send('close-window');
+    window.electronAPI.window.close();
   });
 
   function addEventListenersToButtons() {
